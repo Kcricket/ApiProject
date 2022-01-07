@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <style>
+        :root {
+            --red1: #FF0000;
+            --red2: #950101;
+            --red3: #3D0000;
+            --black: #000000;
+        }
+        /* ---------------------------------------Navbar part---------------------------------------- */
+        ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: #3D0000;
+        background: -moz-linear-gradient(left, #3D0000 0%, #950101 38%, #FF0000 100%);
+        background: -webkit-linear-gradient(left, #3D0000 0%, #950101 38%, #FF0000 100%);
+        background: linear-gradient(to right, #3D0000 0%, #950101 38%, #FF0000 100%);
+        }
+
+        li {
+        float: left;
+        border-right:1px solid #bbb;
+        }
+
+        li:last-child {
+        border-right: none;
+        }
+
+        li a {
+        display: block;
+        /* color: white; */
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+            /* Effects */
+            color: #FFFFFF;
+            text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;
+        }
+
+        li a:hover:not(.active) {
+        background-color: #111;
+        }
+
+        .active {
+        background-color: #04AA6D;
+        }
+        .myButton {
+            color: rgb(255, 255, 255); font-size: 16px; line-height: 16px; padding: 11px; border-radius: 50px; font-family: Georgia, serif; font-weight: normal; text-decoration: none; font-style: normal; font-variant: normal; text-transform: none; background-image: linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%); box-shadow: rgba(0, 0, 0, 0.99) 0px 5px 31px 26px; border: 2px solid rgb(28, 110, 164); display: inline-block;}
+            .myButton:hover {
+            background: #0974bb; }
+            .myButton:active {
+            background: #106ba7; }
+        /* ---------------------------------------Header part---------------------------------------- */
+
+        .header {
+            padding: 60px;
+            text-align: center;
+            background: var(--red2);
+            color: white;
+            font-size: 30px;
+            background: #D0E4F5 url("https://htmlcheatsheet.com/images/logo-css.png") no-repeat scroll 50% 50%;
+        }
+        /* ---------------------------------------Section part---------------------------------------- */
+        section{
+            margin: 20px;
+        }
+        .xxx{
+            display: flex;
+
+        }
+        img{
+            margin-top: 10px;
+            margin-bottom: 10px;
+
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <h1>Header</h1>
+            <p>My supercool header</p>
+          </div>
+          
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Anime Cave</a></li>
+            <li style="float:right"><button class="myButton">H</button></li>
+
+          </ul>
+    </nav>
+
+    <section>
+        <div id="dLista" class="container">
+            <div class="row">
+                <div id="card" class="col xxx" style="background-color: #04AA6D;">
+                        <div class="card"></div>
+                        <!-- <img src="" alt="" style="width: 100px; height: 100px;"> -->
+                    </div>    
+            </div>
+            <div class="row">
+                <div id="card" class="col xxx" style="background-color: #04AA6D;">    
+                        <!-- <img src="" alt="" style="width: 100px; height: 100px;"> -->
+                </div>
+            </div>
+        </div>
+        <div class="container" id="dBuscador">
+            <h2>Aqui va una lista de animes</h2>
+        </div>
+    </section>
+
+    <footer>
+
+    </footer>
+    
+</body>
+</html>
