@@ -270,6 +270,8 @@ window.onload = () => {
     startPage()
   }else if(window.location.href == "http://127.0.0.1:5500/item.html"){
     document.getElementById("bigTxt").innerText = "Lo conseguiste abuela"
+  }else if(window.location.href == "https://kcricket.github.io/ApiProject/"){
+    startPage()
   }
     document.querySelector('#tinput').addEventListener("keyup", searchWord)
   window.addEventListener("scroll", ()=>{
