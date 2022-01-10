@@ -1,0 +1,136 @@
+:root {
+    --red1: #FF0000;
+    --red2: #950101;
+    --red3: #3D0000;
+    --black: #000000;
+}
+/* ---------------------------------------Navbar part---------------------------------------- */
+ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background: #3D0000;
+background: -moz-linear-gradient(left, #3D0000 0%, #950101 38%, #FF0000 100%);
+background: -webkit-linear-gradient(left, #3D0000 0%, #950101 38%, #FF0000 100%);
+background: linear-gradient(to right, #3D0000 0%, #950101 38%, #FF0000 100%);
+}
+
+li {
+float: left;
+border-right:1px solid #bbb;
+}
+
+li:last-child {
+border-right: none;
+}
+
+li a {
+display: block;
+/* color: white; */
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+    /* Effects */
+    color: transparent;
+    background: #666666;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    text-shadow: 0px 3px 3px rgba(255,255,255,0.5);
+}
+
+li a:hover:not(.active) {
+    color: #444444;
+    background: #FFFFFF;
+    text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;
+}
+
+.active {
+background-color: #04AA6D;
+}
+.myButton {
+    color: rgb(255, 255, 255); font-size: 16px; line-height: 16px; padding: 11px; border-radius: 50px; font-family: Georgia, serif; font-weight: normal; text-decoration: none; font-style: normal; font-variant: normal; text-transform: none; background-image: linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%); box-shadow: rgba(0, 0, 0, 0.99) 0px 5px 31px 26px; border: 2px solid rgb(28, 110, 164); display: inline-block;}
+    .myButton:hover {
+    background: #0974bb; }
+    .myButton:active {
+    background: #106ba7; }
+/* ---------------------------------------Header part---------------------------------------- */
+
+.header {
+    text-align: center;
+    /* background-color: var(--red2); */
+    color: white;
+    font-size: 30px;
+    /* background: #D0E4F5 url("https://htmlcheatsheet.com/images/logo-css.png") no-repeat scroll 50% 50%; */
+}
+#carouselExampleControls{
+    max-height: 400px;
+    opacity: 0.9;
+
+}
+/* ---------------------------------------Section part---------------------------------------- */
+
+section{
+    margin: 20px;
+}
+.xxx{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--red3);
+    padding: 20px;
+    margin: 20px;
+}
+img{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* -webkit-box-shadow: 0px 0px 34px 16px rgba(255,0,0,0.64); 
+    box-shadow: 0px 0px 34px 16px rgba(255,0,0,0.64); */
+
+}
+.carrousel-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* ---------------------------------------Overlay---------------------------------------- */
+.container {
+position: relative;
+width: 50%;
+}
+
+.image {
+display: block;
+width: 100%;
+height: auto;
+}
+
+.overlay {
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+height: 100%;
+width: 100%;
+opacity: 0;
+transition: .5s ease;
+background-color: #008CBA;
+}
+
+.container:hover .overlay {
+opacity: 0.5;
+}
+
+.text {
+color: white;
+font-size: 20px;
+position: absolute;
+top: 50%;
+left: 50%;
+-webkit-transform: translate(-50%, -50%);
+-ms-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%);
+text-align: center;
+}
