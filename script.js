@@ -86,36 +86,13 @@ function searchWord(e){
               element.genres.forEach(elementGen => {
                   genData += elementGen+" "
               });
-              var inputValue =  e.target.value ;
-              let titleLow = element.titles.en.toLowerCase()
+
                 // If contains String 
                   if(index<4){
                     //Html for the info
                       //valuesSearch.push(element.titles.en.toLowerCase())
                       var li = document.createElement("li")
                       li.setAttribute("class", "list-group-item d-flex justify-content-between align-items-start")
-                      // var div1 = document.createElement("div")
-                      // div1.setAttribute("class", "ms-2 me-auto")
-                      // var div2 = document.createElement("div")
-                      // div2.setAttribute("class", "fw-bold")
-                      // div2.innerText= genData
-                      // var a = createElement("a")
-                      // a.setAttribute("class", "list-group-item list-group-item-action")
-                      // a.innerText = element.titles.en
-                      // var span = document.createElement("span")
-                      // span.setAttribute("class", "badge bg-primary rounded-pill")
-
-                      // div2.appendChild(a)
-                      // div1.appendChild(div2)
-                      // li.appendChild(div1)
-                      // li.appendChild(span)
-
-                      // document.getElementById("SearchDiv").appendChild(li)
-                      
-                      
-                      
-                      // span.innerText ="14"
-
                       
                       li.innerHTML +=
                       `
@@ -132,6 +109,38 @@ function searchWord(e){
                       document.getElementById("offcanvasTopLabel1").innerText = element.titles.en
                       document.getElementById("offcanvasTopLabel2").innerText = genData 
                       document.getElementById("offImg").src = element.banner_image
+                          //Ask for the Data
+                        fetch('https://api.aniapi.com/v1/episode?anime_id='+element.id
+                        , 
+                        {    method: 'GET',    
+                        headers: {      
+                      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg0MyIsIm5iZiI6MTYzOTk3OTE0MCwiZXhwIjoxNjQyNTcxMTQwLCJpYXQiOjE2Mzk5NzkxNDB9.QsSpa7zga0ejguGLAySH1YJReGCEhmtZx73gIXVP4Q0',
+                      'Content-Type': 'application/json',
+                      'Accept': 'application/json'    }  }).then(res=>res.json()).then(data=> {
+                        //Model the json Data
+                      document.getElementById("SearchDiv").style.display = ""
+                          console.log(data)
+                          if(data.status_code != "404"){
+                              for(i=0; i<data.data.documents.length; i++){
+                                document.getElementById("offBody").innerHTML += `
+                                <h1 class="display-4">Episode${i}: </h1><br>
+                                <a href="${data.data.documents[i].video}">${data.data.documents[i].video}</a><br>
+                              `
+
+                            }
+                          }else if(data.status_code == "200"){
+                            document.getElementById("offBody").innerHTML += `
+                            <h1 class="display-4">No EpisodesFound </h1><br>
+                            `
+                          }
+
+
+
+                      }).catch(err=>console.warn(err.message));
+
+
+
+
                     })
                     index++
                   }
@@ -162,6 +171,7 @@ function searchWord(e){
   function myFunction() {
     location.href = "./item.html"
   }
+  var indexX =0;
 
   function moreAnime(){
 
@@ -175,7 +185,6 @@ function searchWord(e){
              'Accept': 'application/json'    }  }).then(res=>res.json()).then(data=> {
                //Model the json Data
              document.getElementById("SearchDiv").style.display = ""
-         
                  console.log(data)
                //Model each result that:
                data.data.documents.forEach(element => {
@@ -185,30 +194,48 @@ function searchWord(e){
                  });
 
                  var div = document.querySelector("#dLista")
-                 
-                        div.innerHTML +=`
-                         <div class="row">
-                            <div id="card" class="col xxx" >  
-                              <div class="container" style="-webkit-box-shadow: 0px 0px 34px 16px rgba(255,0,0,0.64); box-shadow: 0px 0px 34px 16px rgba(255,0,0,0.64);">
-                              <img src="${data.data.documents[randomNum()].banner_image}" class="image" alt="">
-                              <img src="${data.data.documents[randomNum()].banner_image}" class="image" alt="">
-                              <img src="${data.data.documents[randomNum()].banner_image}" class="image" alt="">
-                              <img src="${data.data.documents[randomNum()].banner_image}" class="image" alt="">
-                              <img src="${data.data.documents[randomNum()].banner_image}" class="image" alt="">
-                              <img src="${data.data.documents[randomNum()].banner_image}" class="image" alt="">
-                                  <div class="overlay">
-                                      <div class="text">Hello World</div>
-                                  </div>
-                            </div>
-                            </div>
+                 if(indexX<4){
+                  div.innerHTML +=`
+                  <div class="row">
+                     <div id="card" class="col xxx" >  
+                     <div class="container" style="-webkit-box-shadow: 0px 0px 34px 16px rgba(255,0,0,0.64); box-shadow: 0px 0px 34px 16px rgba(255,0,0,0.64);">
+                     <img src="${data.data.documents[randomNum()].banner_image}" class="image" alt="">
+                         <div class="overlay">
+                             <div class="text">Hello World</div>
                          </div>
-                         
-                         `
-                     
-         
+                     </div>
 
-           
-                   })
+                     <div class="container" style="-webkit-box-shadow: 0px 0px 34px 16px rgba(255,0,0,0.64); box-shadow: 0px 0px 34px 16px rgba(255,0,0,0.64);">
+                     <img src="${data.data.documents[randomNum()].banner_image}" class="image" alt="">
+                         <div class="overlay">
+                             <div class="text">Hello World</div>
+                         </div>
+                     </div>
+
+                     <div class="container" style="-webkit-box-shadow: 0px 0px 34px 16px rgba(255,0,0,0.64); box-shadow: 0px 0px 34px 16px rgba(255,0,0,0.64);">
+                     <img src="${data.data.documents[randomNum()].banner_image}" class="image" alt="">
+                         <div class="overlay">
+                             <div class="text">Hello World</div>
+                         </div>
+                     </div>
+
+                     <div class="container" style="-webkit-box-shadow: 0px 0px 34px 16px rgba(255,0,0,0.64); box-shadow: 0px 0px 34px 16px rgba(255,0,0,0.64);">
+                     <img src="${data.data.documents[randomNum()].banner_image}" class="image" alt="">
+                         <div class="overlay">
+                             <div class="text">Hello World</div>
+                         </div>
+                     </div>
+                      </div>
+                  </div>
+                  
+                  `
+                 }
+                 indexX++
+              
+                
+                 
+                             
+               })
            
                    // var cards = document.querySelectorAll(".alert")
                    // console.log(cards)
@@ -227,9 +254,18 @@ function searchWord(e){
   }
 
 
+  function loadEpisodes(id){
+
+
+
+
+}
+
              
 
 window.onload = () => {
+ // loadEpisodes()
+
   if(window.location.href == "http://127.0.0.1:5500/index.html"){
     startPage()
   }else if(window.location.href == "http://127.0.0.1:5500/item.html"){
@@ -237,9 +273,9 @@ window.onload = () => {
   }
     document.querySelector('#tinput').addEventListener("keyup", searchWord)
   window.addEventListener("scroll", ()=>{
-    if(window.scrollY +window.innerHeight >= document.documentElement.scrollHeight){
-      moreAnime()
+    if(window.scrollY + window.innerHeight >= document.body.offsetHeight - 1000){
+      moreAnime();
+      indexX = 0
     }
   })
-
 }
