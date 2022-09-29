@@ -4,6 +4,7 @@ Project uploaded on pages:
   https://kcricket.github.io/ApiProject/
 
 I found this nice Anime Api:
+(Might no longer be avilable)
   https://aniapi.com/
   
 This project has:
